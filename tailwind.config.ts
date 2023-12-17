@@ -9,6 +9,6 @@ const config: Config = {
   theme: {
    
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/container-queries')],
 }
 export default config
