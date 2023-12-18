@@ -2,14 +2,16 @@ import React from 'react'
 import PaddingContainer from '../layout/PaddingContainer'
 import { siteConfig } from '@/config/site'
 import SocialLink from '../elements/SocialLink'
+import { getDictionary } from '@/lib/getDictionary'
 
-function Footer() {
+async function Footer({locale}: {locale: string}) {
+    const dictionary = await getDictionary(locale)
     return (
         <div className='py-8 border-t mt-10'>
             <PaddingContainer>
                 <div className="">
                     <h2 className='text-3xl font-bold'>{siteConfig.siteName}</h2>
-                    <p className="max-w-md mt-2 text-neutral-700 text-lg">{siteConfig.description}</p>
+                    <p className="max-w-md mt-2 text-neutral-700 text-lg">{dictionary.footer.description}</p>
                 </div>
                 <div className="mt-6 flex justify-between gap-4 flex-wrap ">
                     <div className="">
@@ -24,7 +26,7 @@ function Footer() {
                         </div>
                     </div>
                     <div className="">
-                        <div className="text-sm text-neutral-400">Currently at</div>
+                        <div className="text-sm text-neutral-400">{dictionary.footer.currentlyAtText}</div>
                         <div className="bg-white shadow-md rounded-md py-2 px-3 flex items-center gap-2 mt-16">
                             <div className='bg-emerald-400 rounded-full w-1 h-1 ' />
                             {siteConfig.currentlyAt}
@@ -33,10 +35,10 @@ function Footer() {
                 </div>
                 <div className="border-t py-3 flex flex-wrap gap-4 items-center justify-between">
                     <div className="text-sm text-neutral-400">
-                        All rights reserved {new Date().getFullYear()}
+                    {dictionary.footer.rightsText} {new Date().getFullYear()}
                     </div>
                     <div className="text-sm underline underline-offset-4">
-                        Made by Willian
+                    {dictionary.footer.creatorText} Willian
                     </div>
                 </div>
             </PaddingContainer>
