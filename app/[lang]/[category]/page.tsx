@@ -38,6 +38,7 @@ export const generateStaticParams = async () => {
 async function Page({ params }: {
     params: {
         category: string
+        lang: string 
     }
 }) {
 
@@ -79,7 +80,7 @@ async function Page({ params }: {
     //     slug: string,
     //     posts: Post[]
     // }
-
+    const locale = params.lang
     const posts = DUMMY_POSTS.filter(dummyPost => dummyPost.category.title.toLocaleLowerCase() === params.category.toLocaleLowerCase())
     const category = DUMMY_CATEGORIES.find( category => category.slug === params.category)
     return (
@@ -88,7 +89,7 @@ async function Page({ params }: {
                 <h1 className='text-4xl font-semibold'>{category?.title}</h1>
                 <p className="text=lg text-neutral-600">{category?.description}</p>
             </div>
-            <PostList posts = {posts}/>
+            <PostList posts = {posts} locale={locale}/>
         </PaddingContainer>
     )
 }

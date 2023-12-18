@@ -6,7 +6,13 @@ import PostList from '@/components/post/PostList'
 // import directus from '@/lib/directus'
 // import { notFound } from 'next/navigation'
 
-export default async function Home() {
+export interface LangParams {
+  params: {
+    lang: string
+  }
+}
+
+export default async function Home({params} : LangParams) {
 
   // const getAllPosts = async () => {
   //   try {
@@ -35,11 +41,12 @@ export default async function Home() {
   return (
     <PaddingContainer>
       <main className="h-auto space-y-10">
-        <PostCard post={DUMMY_POSTS[0]}/>
-        <PostList posts={DUMMY_POSTS.filter((post, index) => index > 1 && index < 4 )} layout='vertical'/>
-        <PostCard post={DUMMY_POSTS[3]} reverse/>
-        <PostList posts={DUMMY_POSTS.filter((post, index) => index > 3 && index < 10 )} layout='vertical'/>
-        <CTACard />
+        
+        <PostCard post={DUMMY_POSTS[0]} locale={params.lang}/>
+        <PostList posts={DUMMY_POSTS.filter((post, index) => index > 1 && index < 4 )} layout='vertical' locale={params.lang}/>
+        <PostCard post={DUMMY_POSTS[3]} reverse locale={params.lang}/>
+        <PostList posts={DUMMY_POSTS.filter((post, index) => index > 3 && index < 10 )} layout='vertical' locale={params.lang}/>
+        <CTACard locale={params.lang}/>
       </main>
     </PaddingContainer>
   )

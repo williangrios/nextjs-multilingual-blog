@@ -1,0 +1,25 @@
+{
+    "navigation": {
+      "links": {
+        "cities": "Cidades",
+        "experience": "Experiências"
+      }
+    },
+    "buttons": {
+      "readMore": "Leia Mais"
+    },
+    "ctaCard": {
+      "title": "Explore o mundo comigo!",
+      "description": "Explore o mundo comigo! Estou viajando ao redor do mundo. Já visitei a maioria das grandes cidades do Brasil e atualmente estou viajando na Itália. Junte-se a mim",
+      "button": "Inscreva-se",
+      "placeholder": "Digite seu e-mail",
+      "subscriberText1": "Junte-se aos nossos",
+      "subscriberText2": "assinantes agora!"
+    },
+    "footer": {
+      "description": "Um blog de viagens minimalista e encantador que compartilha experiências e cidades ao redor do mundo",
+      "rightsText": "Todos os direitos reservados | Direitos autorais",
+      "creatorText": "Criado por ",
+      "currentlyAtText": "Atualmente em"
+    }
+  }

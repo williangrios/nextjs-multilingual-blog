@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/navigation/Navigation'
 import Footer from '@/components/navigation/Footer'
+import { LangParams } from './page'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,18 +13,21 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({
-  children,
+  children, params: {lang}
 }: {
-  children: React.ReactNode
+  children: React.ReactNode,
+  params: {
+    lang: string
+  }
 }) {
   return (
-    <html lang="en">
+    <html lang={lang}>
       <body className={inter.className}>
-        <Navigation />
+        <Navigation  locale={lang}/>
         <div className="pt-10 min-h-[calc(100vh - 300px)]">
           {children}
         </div>
-        <Footer />
+        <Footer locale={lang}/>
       </body>
     </html>
   )

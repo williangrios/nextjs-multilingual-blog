@@ -1,9 +1,12 @@
 // import directus from '@/lib/directus'
+import { getDictionary } from '@/lib/getDictionary'
 import Image from 'next/image'
 import React from 'react'
 // import { revalidateTag } from 'next/cache'
 
-function CTACard() {
+async function CTACard({locale}: {locale: string}) {
+
+    const dictionary = await getDictionary(locale)
 
     // const formAction = async (formData: FormData) => {
     //     'use server'
@@ -36,18 +39,18 @@ function CTACard() {
             <Image src='https://unsplash.com/pt-br/fotografias/um-grupo-de-palmeiras-em-uma-praia-7rXqMiPA48E' fill alt='CTA card image' className='object-center object-cover' />
             <div className='relative z-20'>
                 <div className='font-medium text-lg'>#exploretheworld</div>
-                <h3 className="text-4xl font-semibold mt-3">Explore the world with me</h3>
-                <p className="mt-2 text-lg max-w-lg">Explore the world with me! I am travelling around the world. I have visited most of the great cities of Brazil and I am currently travelling in Italy. Join me</p>
+                <h3 className="text-4xl font-semibold mt-3">{dictionary.ctaCard.title}</h3>
+                <p className="mt-2 text-lg max-w-lg">{dictionary.ctaCard.description}</p>
                 <form className='mt-6 flex items-center gap-2 w-full'>
-                    <input name='email' type='text' className='bg-white/80 w-full md:w-auto text-base rounded-md py-2  px-3  placeholder:text-sm outline-none focus:ring-2 ring-neutral-600' placeholder='Write your email'/>
-                    <button className='bg-neutral-900 rounded-md py-2 px-3 text-neutral-200 whitespace-nowrap'>Sign up</button>
+                    <input name='email' type='text' className='bg-white/80 w-full md:w-auto text-base rounded-md py-2  px-3  placeholder:text-sm outline-none focus:ring-2 ring-neutral-600' placeholder={dictionary.ctaCard.placeholder}/>
+                    <button className='bg-neutral-900 rounded-md py-2 px-3 text-neutral-200 whitespace-nowrap'>{dictionary.ctaCard.button}</button>
                 </form>
                 {/* <form className='mt-6 flex items-center gap-2 w-full' key={subscribersCount + 'subscribers-form'}>
                     <input name='email' type='text' className='bg-white/80 w-full md:w-auto text-base rounded-md py-2  px-3  placeholder:text-sm outline-none focus:ring-2 ring-neutral-600' placeholder='Write your email'/>
                     <button className='bg-neutral-900 rounded-md py-2 px-3 text-neutral-200 whitespace-nowrap'>Sign up</button>
                 </form>
                 <div className='mt-5 text-neutral-700'>
-                    Join our <span className='bg-neutral-700 rounded-md text-neutral-100 px-2 py-1 text-sm'>{subscribersCount}</span> subscribers now!
+                    {dictionary.ctaCard.subscriberText1} <span className='bg-neutral-700 rounded-md text-neutral-100 px-2 py-1 text-sm'>{subscribersCount}</span> {dictionary.ctaCard.subscribersText2}
                 </div> */}
 
             </div>

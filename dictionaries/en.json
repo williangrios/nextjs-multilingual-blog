@@ -1,0 +1,25 @@
+{
+    "navigation" :{
+        "links": {
+            "cities": "Cities",
+            "experience": "Experiences"
+        }
+    },
+    "buttons" : {
+        "readMore": "Read More"
+    },
+    "ctaCard": {
+        "title": "Explore the world with me!",
+        "description" :"Explore the world with me! I am travelling around the world. I have visited most of the great cities of Brazil and I am currently travelling in Italy. Join me",
+        "button": "Sign up",
+        "placeholder": "Write your email",
+        "subscriberText1": "Join our",
+        "subscriberText2": "subscribers now!"
+    },
+    "footer": {
+        "description" :"A minimal and lovely travel blog whict shares experiences and citiest around the world",
+        "rightsText": "All rights reserved | Copyright",
+        "creatorText": "Created by ",
+        "currentlyAtText": "Currently at"
+    }
+}

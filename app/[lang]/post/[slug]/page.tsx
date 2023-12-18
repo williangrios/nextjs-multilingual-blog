@@ -42,6 +42,7 @@ export const generateStaticParams = async () => {
 export default async function Page({ params }: {
     params: {
         slug: string
+        lang: string
     }
 }) {
 
@@ -69,7 +70,7 @@ export default async function Page({ params }: {
     // }
 
     // const post = await getPostData()
-
+    const locale = params.lang
     const post = DUMMY_POSTS.find(post => post.slug.toLocaleLowerCase() === params.slug.toLocaleLowerCase())
     if (!post) {
         notFound()
@@ -77,7 +78,7 @@ export default async function Page({ params }: {
     return (
         <PaddingContainer>
             <div className="space-y-10">
-                <PostHero post={post} />
+                <PostHero post={post} locale={locale}/>
                 <div className="flex flex-col md:flex-row gap-10">
                     <div className="relative">
                         <div className="sticky items-center top-20 flex md:flex-col gap-5">
@@ -89,7 +90,7 @@ export default async function Page({ params }: {
                     </div>
                     <PostBody body={post.body} />
                 </div>
-                <CTACard />
+                <CTACard locale={locale}/>
             </div>
         </PaddingContainer>
     )
